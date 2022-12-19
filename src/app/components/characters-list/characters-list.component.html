@@ -1,0 +1,53 @@
+<div class="mat-elevation-z8 mt-3" style="position: relative;">
+    <div *ngIf="isLoading" class="centralized-spinner">
+      <mat-progress-spinner
+        color="primary"
+        mode="indeterminate">
+      </mat-progress-spinner>
+    </div>
+
+    <app-character-filter (onSearch)="searchCharacters($event)"></app-character-filter>
+    
+    <section class="table-container">
+        <table mat-table [dataSource]="characters">
+            <ng-container matColumnDef="id">
+                <th mat-header-cell *matHeaderCellDef> ID </th>
+                <td mat-cell *matCellDef="let element"> {{element.id}} </td>
+            </ng-container>
+        
+            <ng-container matColumnDef="name">
+                <th mat-header-cell *matHeaderCellDef> Name </th>
+                <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+            </ng-container>
+        
+            <ng-container matColumnDef="description">
+                <th mat-header-cell *matHeaderCellDef> Description </th>
+                <td mat-cell *matCellDef="let element"> {{element.description}} </td>
+            </ng-container>
+
+            <ng-container matColumnDef="actions">
+                <th mat-header-cell *matHeaderCellDef> Actions </th>
+                <td mat-cell *matCellDef="let element">
+                    <button mat-icon-button color="primary" aria-label="Details" (click)="details(element)">
+                        <mat-icon>info</mat-icon>
+                    </button>
+                    <button mat-icon-button [disabled]="!element.favorite && favoriteListFull" [color]="element.favorite ? 'warn' : 'primary'" aria-label="Favorite" (click)="favorite(element)">
+                        <mat-icon>favorite</mat-icon>
+                    </button>
+                </td>
+            </ng-container>
+        
+            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+            <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+        </table>
+    </section>
+
+    <mat-paginator [length]="charactersListLength"
+        [pageSize]="pageSize"
+        [pageSizeOptions]="[5, 10, 20, 50, 100]"
+        [showFirstLastButtons]="true"
+        [pageIndex]="pageIndex"
+        (page)="handlePageEvent($event)"
+        aria-label="Select page">
+    </mat-paginator>    
+</div>

@@ -1,0 +1,54 @@
+<mat-card class="character-card">
+    <mat-card-header>
+        <div mat-card-avatar class="character-card-image"
+            [style.background]="'url(' + character?.thumbnail?.path + '.' + character?.thumbnail?.extension + ')'">
+        </div>
+        <mat-card-title>{{character?.name}}</mat-card-title>
+        <mat-card-subtitle>{{character?.id}}</mat-card-subtitle>
+    </mat-card-header>
+    <mat-card-content>
+        <p>{{character?.description}}</p>
+        <mat-accordion>
+            <mat-expansion-panel>
+                <mat-expansion-panel-header>
+                    <mat-panel-title>
+                        Comics
+                    </mat-panel-title>
+                    <mat-panel-description>
+                        {{characterDetail?.comics?.items?.length}}
+                    </mat-panel-description>
+                </mat-expansion-panel-header>
+                <p *ngFor="let item of characterDetail?.comics?.items; index as i;">{{item.name}}</p>
+            </mat-expansion-panel>
+            <mat-expansion-panel>
+                <mat-expansion-panel-header>
+                    <mat-panel-title>
+                        Series
+                    </mat-panel-title>
+                    <mat-panel-description>
+                        {{characterDetail?.series?.items?.length}}
+                    </mat-panel-description>
+                </mat-expansion-panel-header>
+                <p *ngFor="let item of characterDetail?.series?.items; index as i;">{{item.name}}</p>
+            </mat-expansion-panel>
+            <mat-expansion-panel>
+                <mat-expansion-panel-header>
+                    <mat-panel-title>
+                        Stories
+                    </mat-panel-title>
+                    <mat-panel-description>
+                        {{characterDetail?.stories?.items?.length}}
+                    </mat-panel-description>
+                </mat-expansion-panel-header>
+                <p *ngFor="let item of characterDetail?.stories?.items; index as i;">{{item.name}}</p>
+            </mat-expansion-panel>
+        </mat-accordion>
+    </mat-card-content>
+    <mat-card-actions align="end">
+        <button mat-button (click)="showDetail()" *ngIf="hasDetailUrl()">DETAIL</button>
+        <button mat-button (click)="showWiki()" *ngIf="hasDetailWiki()">WIKI</button>
+      </mat-card-actions>
+    <mat-card-footer *ngIf="isLoading">
+        <mat-progress-bar mode="indeterminate"></mat-progress-bar>
+    </mat-card-footer>
+</mat-card>

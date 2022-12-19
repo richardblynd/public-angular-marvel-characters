@@ -1,0 +1,84 @@
+/* You can add global styles to this file, and also import other style files */
+
+html, body { height: 100%; }
+body {
+    font-family: Roboto, "Helvetica Neue", sans-serif;
+    max-width: 80vw;
+    margin: auto;
+}
+
+a {
+    cursor: pointer;
+}
+
+nav a {
+    padding: 5px 10px;
+    text-decoration: none;
+    margin-right: 10px;
+    margin-top: 10px;
+    display: inline-block;
+    background-color: #e8e8e8;
+    color: #3d3d3d;
+    border-radius: 4px;
+}
+
+nav a:hover {
+    color: white;
+    background-color:  #42545C;
+}
+
+nav a.active {
+    background-color: black;
+    color: white;
+}
+
+.centralized-spinner {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: rgba(255, 255, 255, 0.6);
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+}
+
+.form-filter {
+    padding: .5rem;
+}
+
+.table-container {
+    height: 65vh;
+    overflow: auto;
+}
+
+.mat-column-id {
+    flex: 0 0 12% !important;
+    width: 12% !important;
+}
+
+.mat-column-name {
+    flex: 0 0 20% !important;
+    width: 20% !important;
+}
+
+.mat-column-description {
+    flex: 0 0 58% !important;
+    width: 58% !important;
+}
+
+.mat-column-actions {
+    flex: 0 0 10% !important;
+    min-width: 110px !important;
+    width: 10% !important;
+    text-align: center !important;
+}
+
+.character-card {
+    min-width: 400px;
+    max-width: 1000px;
+}
+
+.character-card-image {
+    background-size: cover !important;
+}

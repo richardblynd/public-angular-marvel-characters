@@ -1,0 +1,13 @@
+<div class="form-filter">
+    <h2>Filter</h2>
+
+    <mat-form-field appearance="fill">
+        <mat-label>Name</mat-label>
+        <input matInput #name>
+    </mat-form-field>
+    <mat-form-field appearance="fill">
+        <mat-label>Name starts with</mat-label>
+        <input matInput #nameStartsWith>
+    </mat-form-field>
+    <button mat-button color="primary" (click)="searchAction(name.value, nameStartsWith.value)">Search</button>
+</div>
