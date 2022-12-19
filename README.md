@@ -1,6 +1,18 @@
 # MarvelCharacters
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 15.0.3.
+Component Factory
+
+Para resolver o problema utilizando component factory, foi pensando aonde seria o lugar mais adequado para utilizar, sendo assim a abordagem de criação dinamica de componentes foi utilizada para preencher o conteudo do dialog de detalhes do personagem.
+Desta forma, caso futuramente seja necessário implementar outras funcionalidades com dialog, já existe um componente pronto para fazer a exibição do mesmo, sendo necessário apenas a implementação de um componente para exibição do conteudo, que pode ser usado em outros locais também.
+
+Favoritos
+
+Para a implementar a funcionalidade de favoritar um personagem, como a API não tem este recurso, foi então utilizado localStorage, assim a lista de favoritos é mantida mesmo se o navegador for fechado.
+
+Ordenação
+
+Devido a necessidade de ordenar primeiramente pelos favoritos, foi necessário realizar alguns tratamentos na busca dos dados da API para que a tela exibisse corretamente a quantidade de itens conforme a paginação.
+A ordenação pelo nome foi feita diretamente através da API.
 
 ## Development server
 
